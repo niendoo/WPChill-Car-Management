@@ -232,29 +232,40 @@ function wpchill_initialize_plugin() {
         wp_localize_script('wpchill-ajax', 'frontendajax', array('ajaxurl' => admin_url('admin-ajax.php')));
 
         // Dynamic CSS for the form and results card
-    $options = get_option('wpchill_car_styling_options', array());
-    $custom_css = "
-        .car-card img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        form {
-            background-color: {$options['form_background_color']};
-            color: {$options['form_text_color']};
-            border-color: {$options['form_border_color']};
-        }
-        input[type='submit'] {
-            background-color: {$options['form_button_color']};
-            color: {$options['form_button_text_color']};
-        }
-        .car-card {
-            background-color: {$options['results_card_background_color']};
-            color: {$options['results_card_text_color']};
-            border-color: {$options['results_card_border_color']};
-        }
-    ";
-    wp_add_inline_style('wpchill-styles', $custom_css);
+   $options = get_option('wpchill_car_styling_options', array());
+
+$form_background_color = isset($options['form_background_color']) ? $options['form_background_color'] : '#FFFFFF'; 
+$form_text_color = isset($options['form_text_color']) ? $options['form_text_color'] : '#000000'; 
+$form_border_color = isset($options['form_border_color']) ? $options['form_border_color'] : '#CCCCCC'; 
+$form_button_color = isset($options['form_button_color']) ? $options['form_button_color'] : '#FF0000'; 
+$form_button_text_color = isset($options['form_button_text_color']) ? $options['form_button_text_color'] : '#FFFFFF';
+$results_card_background_color = isset($options['results_card_background_color']) ? $options['results_card_background_color'] : '#FFFFFF';
+$results_card_text_color = isset($options['results_card_text_color']) ? $options['results_card_text_color'] : '#000000'; 
+$results_card_border_color = isset($options['results_card_border_color']) ? $options['results_card_border_color'] : '#CCCCCC'; 
+
+$custom_css = "
+    .car-card img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+    form {
+        background-color: $form_background_color;
+        color: $form_text_color;
+        border-color: $form_border_color;
+    }
+    input[type='submit'] {
+        background-color: $form_button_color;
+        color: $form_button_text_color;
+    }
+    .car-card {
+        background-color: $results_card_background_color;
+        color: $results_card_text_color;
+        border-color: $results_card_border_color;
+    }
+";
+wp_add_inline_style('wpchill-styles', $custom_css);
+
     }
     add_action('wp_enqueue_scripts', 'wpchill_enqueue_scripts');
 
