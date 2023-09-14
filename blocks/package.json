@@ -1,0 +1,16 @@
+
+{
+  "name": "wpchill-carmanagement",
+  "version": "1.0.0",
+  "description": "Car management Gutenberg block",
+  "main": "index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
+  },
+  "author": "Abdul Rauf",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "@wordpress/scripts": "^26.12.0"  
+  }
+}
