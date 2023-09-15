@@ -315,8 +315,13 @@ wp_add_inline_style('wpchill-styles', $custom_css);
         add_settings_field('wpchill_results_card_border_color', __('Results Card Border Color', 'wpchill-carmanagement'), 'wpchill_results_card_border_color_callback', 'wpchill-car-styling', 'wpchill_car_styling_main');
     }
 
+
+   
     function wpchill_car_styling_section_text() {
         echo '<p>' . __('Please set the styling options for the car form and results card.', 'wpchill-carmanagement') . '</p>';
+        echo '<p>' . __('To display the list of cars on any page or post, use the following shortcode:', 'wpchill-carmanagement') . '</p>';
+        echo '<code>' . '[wpchill_car_list show_filter="1"]' . '</code>';
+        echo '<p>' . __('The "show_filter" attribute can be set to "1" to display the filter form, or "0" to hide it.', 'wpchill-carmanagement') . '</p>';
     }
 
     function wpchill_form_background_color_callback() {
